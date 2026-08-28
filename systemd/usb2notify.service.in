@@ -3,7 +3,7 @@ Description=Notify when a SuperSpeed USB device connects at USB 2 speed
 
 [Service]
 Type=simple
-ExecStart=%h/.local/bin/usb2notify
+ExecStart=@USB2NOTIFY_EXEC@
 Restart=on-failure
 RestartSec=2
 NoNewPrivileges=yes

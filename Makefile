@@ -1,6 +1,6 @@
 PYTHON ?= python3
 USER_BIN_DIR := $(HOME)/.local/bin
-USER_SYSTEMD_DIR := $(HOME)/.config/systemd/user
+USER_SYSTEMD_DIR := $(HOME)/.local/share/systemd/user
 
 .PHONY: test check install enable disable uninstall
 
@@ -13,7 +13,8 @@ check:
 
 install:
 	install -Dm755 src/usb2notify.py "$(USER_BIN_DIR)/usb2notify"
-	install -Dm644 systemd/usb2notify.service "$(USER_SYSTEMD_DIR)/usb2notify.service"
+	install -Dm644 systemd/usb2notify.service.in "$(USER_SYSTEMD_DIR)/usb2notify.service"
+	sed -i 's|@USB2NOTIFY_EXEC@|%h/.local/bin/usb2notify|' "$(USER_SYSTEMD_DIR)/usb2notify.service"
 
 enable:
 	systemctl --user daemon-reload
