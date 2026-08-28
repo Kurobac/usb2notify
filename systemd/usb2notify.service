@@ -1,0 +1,18 @@
+[Unit]
+Description=Notify when a SuperSpeed USB device connects at USB 2 speed
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/usb2notify
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX AF_NETLINK
+
+[Install]
+WantedBy=default.target
