@@ -55,6 +55,22 @@ the event listener.
 
 ## Installation
 
+### Arch Linux
+
+Install from AUR:
+
+```bash
+paru -S usb2notify
+# or use your favourite AUR helper
+```
+
+Packages do not enable the service automatically. Enable it for the current
+user after installation:
+
+```bash
+systemctl --user enable --now usb2notify.service
+```
+
 ### User-local installation
 
 Install the executable and systemd user unit into the current user's home
@@ -70,22 +86,6 @@ The installed files are:
 ```text
 ~/.local/bin/usb2notify
 ~/.local/share/systemd/user/usb2notify.service
-```
-
-### Arch Linux package
-
-The AUR package installs the executable and user unit system-wide:
-
-```text
-/usr/bin/usb2notify
-/usr/lib/systemd/user/usb2notify.service
-```
-
-Packages do not enable the service automatically. Enable it for the current
-user after installation:
-
-```bash
-systemctl --user enable --now usb2notify.service
 ```
 
 Check the service and follow its log with:
