@@ -1,5 +1,6 @@
 [Unit]
 Description=Notify when a SuperSpeed USB device connects at USB 2 speed
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
@@ -15,4 +16,4 @@ ProtectControlGroups=yes
 RestrictAddressFamilies=AF_UNIX AF_NETLINK
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
